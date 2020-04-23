@@ -1,7 +1,7 @@
 # comma-ai-speed-challenge
 
 My attempt at the [comma ai speed challenge](https://github.com/commaai/speedchallenge). 
-Using it as a learning tool as I improve my undestanding of image processing and deep learningz.
+Using it as a learning tool as I improve my undestanding of image processing and deep learning.
 
 ## Introduction and Analysis
 The aim of the challenege is to predict the speed of the car from the given video and speed readings. 
