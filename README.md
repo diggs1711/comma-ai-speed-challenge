@@ -27,10 +27,13 @@ and review it later on when I've got a decent setup and model working but for no
 
 ## Model
 I setup a basic CNN with keras. Using first 80% of the training video as the training set and the last 20% as the
-validation set. Getting an mse of around 30-40 with 50 epochs. Obviously pretty shit and will definitely improve as I go on.
+validation set. The model consists of two Conv2D layers with 32 filters each and kernel sizes of 3x3 and 5x5 respectively.
+A stride of 2 is used on both with relu as the activation function.
+This is then flattened and fed into two Dense layers that output a single value.
+Getting an mse of around 25-35 with 100 epochs. Obviously pretty shit and will definitely improve as I go on.
 
 I will be researching more into combining a CNN model with an RNN model or possibly an LSTM. This will allow the model 
-to capture the temporal nature of the  videos and hopefully give a decent score.
+to capture the temporal nature of the videos and hopefully give a decent score.
 
 ## Things to try
 - Image augemetation
