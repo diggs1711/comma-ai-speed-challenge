@@ -38,6 +38,9 @@ to capture the temporal nature of the videos and hopefully give a decent score.
 ## Things to try
 - Image augemetation
 - k-fold validation with RNN model
-- Timeseriessplit validation from sckit-learn could be useful
+- Check which frames have the biggest errors and figure out why
+
+# Papers
+https://arxiv.org/pdf/1604.07316v1.pdf
 
 Will be updating this as I make progress...
