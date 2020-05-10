@@ -35,6 +35,20 @@ Getting an mse of around 25-35 with 100 epochs. Obviously pretty shit and will d
 I will be researching more into combining a CNN model with an RNN model or possibly an LSTM. This will allow the model 
 to capture the temporal nature of the videos and hopefully give a decent score.
 
+
+## Update 11/05/20
+Added Xception pretrained model as the first layer in the model. Using a TimeDistributed Layer from keras each time slice is fed into the model and then into a LSTM layer. This LSTM layer outputs a value at each time slice. This LSTM layer feeds into FC Layers and outputs a speed value.
+
+Adding Xception helped tremendously bringing the MSE down below 20 on the validation set. 
+
+I used OpenCV to place the predicted value from the test set onto the test video. This helped me to view and analyse the predicated test values and see where the main errors were. The first thing I noticed was that the values were fluctuating wildly between each frame. I wanted my model to realise that if the previous predicted value was 20, the next frame is probably not 8 but somewhere around 20 as well. To aid with this, I added the TimeDistributed layer and the LSTM layer. This helped bringing the MSE down to around 8/9 after 30 epochs. The values on the test video also seemed to improve and were noticeably more stable than the previous video.
+
+Another error I noticed was at stop signs, the test video was still predicting values greater than 0, usually around 4-6. I presume this is due to the cropped video image not able to view the stop sign or road markings when stopped at the sign. Need to check the test video again and see if there's any stop signs
+
+To deal with memory constraints on Colab I "chunked" the video into frames of 100 timesteps. This allowed me to batch frames instead of sending the whole video in as 1 timestep.
+
+
+
 ## Things to try
 - Image augemetation
 - k-fold validation with RNN model
